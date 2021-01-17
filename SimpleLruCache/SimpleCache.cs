@@ -12,9 +12,7 @@ namespace SimpleLruCache
 
         public int Count => _store.Count;
 
-        public SimpleCache() : this(DEFAULT_CAPACITY)
-        {
-        }
+        public SimpleCache() : this(DEFAULT_CAPACITY) { }
 
         public SimpleCache(int capacity)
         {
@@ -31,6 +29,10 @@ namespace SimpleLruCache
 
         public object Get(object key)
         {
+            if (key == null)
+            {
+                return null;
+            }
             return MoveToFirst(key);
         }
 
@@ -44,6 +46,11 @@ namespace SimpleLruCache
 
         public void Set(object key, object value)
         {
+            if (key == null || value == null)
+            {
+                return;
+            }
+
             _store[key] = value;
             MoveToFirst(key);
             if (Count > _capacity)

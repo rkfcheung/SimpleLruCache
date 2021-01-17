@@ -39,6 +39,15 @@ namespace SimpleLruCacheTest
         }
 
         [Test]
+        public void TestIgnoreNullValues()
+        {
+            cache.Set(null, null);
+            cache.Set("null", null);
+            Assert.AreEqual(cache.Count, 0);
+            Assert.IsNull(cache.Get(null));
+        }
+
+        [Test]
         public void TestInitWithCapacity()
         {
             int capacity = 4;
