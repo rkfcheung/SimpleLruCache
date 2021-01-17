@@ -38,6 +38,11 @@ namespace SimpleLruCache
 
         public void Remove(object key)
         {
+            if (key == null)
+            {
+                return;
+            }
+
             if (_store.TryRemove(key, out _))
             {
                 _keys.Remove(key);

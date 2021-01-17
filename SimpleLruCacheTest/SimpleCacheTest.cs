@@ -45,6 +45,9 @@ namespace SimpleLruCacheTest
             cache.Set("null", null);
             Assert.AreEqual(cache.Count, 0);
             Assert.IsNull(cache.Get(null));
+
+            cache.Remove(null);
+            Assert.AreEqual(cache.Count, 0);
         }
 
         [Test]
