@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleLruCache", "SimpleLruCache\SimpleLruCache.csproj", "{8E89CFC0-0024-41B9-AD9E-F452485A9A99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLruCacheTest", "SimpleLruCacheTest\SimpleLruCacheTest.csproj", "{C5B4AB77-358A-423B-AAE8-680F0A32F9E8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8E89CFC0-0024-41B9-AD9E-F452485A9A99} = {8E89CFC0-0024-41B9-AD9E-F452485A9A99}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E89CFC0-0024-41B9-AD9E-F452485A9A99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E89CFC0-0024-41B9-AD9E-F452485A9A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E89CFC0-0024-41B9-AD9E-F452485A9A99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E89CFC0-0024-41B9-AD9E-F452485A9A99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5B4AB77-358A-423B-AAE8-680F0A32F9E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5B4AB77-358A-423B-AAE8-680F0A32F9E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5B4AB77-358A-423B-AAE8-680F0A32F9E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5B4AB77-358A-423B-AAE8-680F0A32F9E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {179BD9DC-1D0D-4B36-9AFE-60B2FF254D5A}
+	EndGlobalSection
+EndGlobal
