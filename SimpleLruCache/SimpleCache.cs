@@ -65,14 +65,14 @@ namespace SimpleLruCache
 
         private object MoveToFirst(object key)
         {
-            object value = null;
-            if (_store.ContainsKey(key))
+            if (!_store.ContainsKey(key))
             {
-                value = _store[key];
-                _keys.Remove(key); // O(1) https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.linkedlist-1.remove
-                _keys.AddFirst(key);
+                return null;
             }
-            return value;
+
+            _keys.Remove(key); // O(1) https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.linkedlist-1.remove
+            _keys.AddFirst(key);
+            return _store[key];
         }
     }
 }
