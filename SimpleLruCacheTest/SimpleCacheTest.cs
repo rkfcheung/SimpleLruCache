@@ -68,7 +68,8 @@ namespace SimpleLruCacheTest
                     lruCache.Set(i, uuid2);
 
                     Assert.AreEqual(uuid, lruCache.Get(0));
-                } else
+                }
+                else
                 {
                     Assert.AreEqual(uuid, lruCache.Get(0));
                     Assert.AreEqual(uuid2, lruCache.Get(1));
