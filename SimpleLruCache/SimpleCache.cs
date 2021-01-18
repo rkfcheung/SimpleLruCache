@@ -39,7 +39,7 @@ namespace SimpleLruCache
             }
             else
             {
-                throw new InvalidOperationException($"Capaciy was already specified to {_capacity}!");
+                throw new InvalidOperationException($"Capacity was already specified to {_capacity}!");
             }
             return this;
         }
