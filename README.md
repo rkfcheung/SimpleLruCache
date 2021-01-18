@@ -5,6 +5,11 @@ Simple Least Recently Used Cache
 
 ## Usage
 
+```cmd
+dotnet build
+dotnet run --project SimpleLruCache
+```
+
 ```csharp
 var capacity = 128; // Default: 64
 var cache = new SimpleCache(capacity);
@@ -32,10 +37,10 @@ private void ChangedHandler(object sender, CacheEntryChangedEventArgs e)
 
 Test Count | SimpleCache (ms) | MemoryCache (ms)
 -----------|------------------|-----------------
-2,048 | 17 | 74
-8,192 | 46 | 87
-32,768 | 191 | 289
-131,072 | 760 | 1,127
+2,048 | 14 | 23
+8,192 | 49 | 74
+32,768 | 186 | 259
+131,072 | 733 | 1,031
 
 ## Test Machine System Information
 
