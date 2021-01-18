@@ -32,15 +32,12 @@ namespace SimpleLruCache
 
         public SimpleCache SpecifyCapacity(int capacity)
         {
-            if (!_capacitySpecified && Count == 0)
-            {
-                _capacity = capacity;
-                _capacitySpecified = true;
-            }
-            else
+            if (_capacitySpecified || Count > 0)
             {
                 throw new InvalidOperationException($"Capacity was already specified to {_capacity}!");
             }
+            _capacity = capacity;
+            _capacitySpecified = true;
             return this;
         }
 
