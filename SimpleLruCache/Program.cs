@@ -23,8 +23,8 @@ namespace SimpleLruCache
         {
             Console.WriteLine("## SimpleCache vs MemoryCache");
             Console.WriteLine();
-            Console.WriteLine(" Test Count | SimpleCache (ms) | MemoryCache (ms)");
-            Console.WriteLine("------------|------------------|-----------------");
+            Console.WriteLine("Test Count | SimpleCache (ms) | MemoryCache (ms)");
+            Console.WriteLine("-----------|------------------|-----------------");
             int maxTestCount = 2 << 16;
             for (int testCount = 2 << 10; testCount <= maxTestCount; testCount <<= 2)
             {
