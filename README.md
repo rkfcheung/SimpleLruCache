@@ -28,6 +28,8 @@ private void ChangedHandler(object sender, CacheEntryChangedEventArgs e)
 
 ## SimpleCache vs MemoryCache
 
+* [Test Code](blob/master/SimpleLruCache/Program.cs)
+
 Test Count | SimpleCache (ms) | MemoryCache (ms)
 -----------|------------------|-----------------
 2,048 | 17 | 74
@@ -35,7 +37,7 @@ Test Count | SimpleCache (ms) | MemoryCache (ms)
 32,768 | 191 | 289
 131,072 | 760 | 1,127
 
-## System Information
+## Test Machine System Information
 
 Item | Value
 -----|------
