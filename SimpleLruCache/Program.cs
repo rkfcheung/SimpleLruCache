@@ -38,7 +38,7 @@ namespace SimpleLruCache
                 var stopWatch = new Stopwatch();
 
                 stopWatch.Start();
-                var simpleCache = new SimpleCache(capacity);
+                var simpleCache = SimpleCache.Build().SpecifyCapacity(capacity);
                 for (int i = 0; i < testCount; i++)
                 {
                     simpleCache.Get(key);

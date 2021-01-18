@@ -30,7 +30,7 @@ namespace SimpleLruCacheTest
         [Test]
         public void TestCreatedOrUpdated()
         {
-            var cache = new SimpleCache();
+            var cache = SimpleCache.Build();
             cache.Changed += new EventHandler<CacheEntryChangedEventArgs>(ChangedHandler);
             for (int i = 0; i < testCount; i++)
             {
@@ -46,7 +46,7 @@ namespace SimpleLruCacheTest
         [Test]
         public void TestRemoved()
         {
-            var cache = new SimpleCache(1);
+            var cache = SimpleCache.Build().SpecifyCapacity(1);
             cache.Changed += new EventHandler<CacheEntryChangedEventArgs>(ChangedHandler);
             for (int i = 0; i < testCount; i++)
             {

@@ -6,13 +6,14 @@ Simple Least Recently Used Cache
 ## Usage
 
 ```cmd
+dotnet test
 dotnet build
 dotnet run --project SimpleLruCache
 ```
 
 ```csharp
 var capacity = 128; // Default: 64
-var cache = new SimpleCache(capacity);
+var cache = SimpleCache.Build().SpecifyCapacity(capacity);
 cache.Changed += new EventHandler<CacheEntryChangedEventArgs>(ChangedHandler);
 
 // ...

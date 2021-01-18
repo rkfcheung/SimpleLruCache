@@ -11,7 +11,7 @@ namespace SimpleLruCacheTest
         [SetUp]
         public void Setup()
         {
-            cache = new SimpleCache();
+            cache = SimpleCache.Build();
         }
 
         [Test]
@@ -54,7 +54,7 @@ namespace SimpleLruCacheTest
         public void TestInitWithCapacity()
         {
             int capacity = 4;
-            var cacheWithCapcity = new SimpleCache(capacity);
+            var cacheWithCapcity = SimpleCache.Build().SpecifyCapacity(capacity);
             for (int i = 0; i < capacity * 2; i++)
             {
                 cacheWithCapcity.Set(i, i * i);
@@ -66,7 +66,7 @@ namespace SimpleLruCacheTest
         public void TestLeastRecentlyUsed()
         {
             int capacity = 8;
-            var lruCache = new SimpleCache(capacity);
+            var lruCache = SimpleCache.Build().SpecifyCapacity(capacity);
             var uuid = Guid.NewGuid();
             var uuid2 = Guid.NewGuid();
             for (int i = 0; i < capacity * 2; i++)
