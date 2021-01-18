@@ -3,6 +3,29 @@ Simple Least Recently Used Cache
 
 * [Cache Replacement Policies: Least Recently Used (LRU)](https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU)
 
+## Usage
+
+```csharp
+var capacity = 128; // Default: 64
+var cache = new SimpleCache(capacity);
+cache.Changed += new EventHandler<CacheEntryChangedEventArgs>(ChangedHandler);
+
+// ...
+
+private void ChangedHandler(object sender, CacheEntryChangedEventArgs e)
+{
+    var key = e.Key;
+    if (e.EventType == CacheEventType.CreatedOrUpdated)
+    {
+        // ... Handle CacheEventType events ...
+    }
+    else if (e.EventType == CacheEventType.Removed)
+    {
+        // .. Handle CacheEventType.Removed events
+    }
+}
+```
+
 ## SimpleCache vs MemoryCache
 
 Test Count | SimpleCache (ms) | MemoryCache (ms)
