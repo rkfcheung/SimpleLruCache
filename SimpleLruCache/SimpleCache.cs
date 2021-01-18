@@ -8,6 +8,7 @@ namespace SimpleLruCache
     {
         private static readonly int DEFAULT_CAPACITY = 64;
         private int _capacity;
+        private bool _capacitySpecified = false;
         private readonly ConcurrentDictionary<object, object> _store;
         private readonly LinkedList<object> _keys;
 
@@ -31,7 +32,15 @@ namespace SimpleLruCache
 
         public SimpleCache SpecifyCapacity(int capacity)
         {
-            _capacity = capacity;
+            if (!_capacitySpecified && Count == 0)
+            {
+                _capacity = capacity;
+                _capacitySpecified = true;
+            }
+            else
+            {
+                throw new InvalidOperationException($"Capaciy was already specified to {_capacity}!");
+            }
             return this;
         }
 

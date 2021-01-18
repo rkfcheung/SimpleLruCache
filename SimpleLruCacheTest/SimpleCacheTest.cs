@@ -51,18 +51,6 @@ namespace SimpleLruCacheTest
         }
 
         [Test]
-        public void TestInitWithCapacity()
-        {
-            int capacity = 4;
-            var cacheWithCapcity = SimpleCache.Build().SpecifyCapacity(capacity);
-            for (int i = 0; i < capacity * 2; i++)
-            {
-                cacheWithCapcity.Set(i, i * i);
-            }
-            Assert.AreEqual(cacheWithCapcity.Count, capacity);
-        }
-
-        [Test]
         public void TestLeastRecentlyUsed()
         {
             int capacity = 8;
@@ -108,6 +96,28 @@ namespace SimpleLruCacheTest
             Assert.AreEqual(1L, cache.Count);
             Assert.AreEqual("hello", cache.Get("en"));
             Assert.IsNull(cache.Get("fr"));
+        }
+
+        [Test]
+        public void TestSpecifyCapacity()
+        {
+            int capacity = 4;
+            var cacheWithCapcity = SimpleCache.Build().SpecifyCapacity(capacity);
+            for (int i = 0; i < capacity * 2; i++)
+            {
+                cacheWithCapcity.Set(i, i * i);
+            }
+            Assert.AreEqual(cacheWithCapcity.Count, capacity);
+        }
+
+        [Test]
+        public void TestSpecifyCapacityException()
+        {
+            var cacheWithCapcity = SimpleCache.Build().SpecifyCapacity(1);
+            Assert.Throws<InvalidOperationException>(() => cacheWithCapcity.SpecifyCapacity(2));
+
+            cache.Set(new object(), new object());
+            Assert.Throws<InvalidOperationException>(() => cacheWithCapcity.SpecifyCapacity(3));
         }
 
         [Test]
