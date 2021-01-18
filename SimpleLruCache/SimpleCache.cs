@@ -1,4 +1,5 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 
 namespace SimpleLruCache
@@ -9,6 +10,8 @@ namespace SimpleLruCache
         private readonly int _capacity;
         private readonly ConcurrentDictionary<object, object> _store;
         private readonly LinkedList<object> _keys;
+
+        public event EventHandler<CacheEntryChangedEventArgs> Changed;
 
         public int Count => _store.Count;
 
@@ -47,6 +50,7 @@ namespace SimpleLruCache
             {
                 _keys.Remove(key);
             }
+            Changed?.Invoke(this, new CacheEntryChangedEventArgs(CacheEventType.Removed, key));
         }
 
         public void Set(object key, object value)
@@ -64,8 +68,10 @@ namespace SimpleLruCache
                 if (last != null && _store.TryRemove(last.Value, out _))
                 {
                     _keys.RemoveLast();
+                    Changed?.Invoke(this, new CacheEntryChangedEventArgs(CacheEventType.Removed, last.Value));
                 }
             }
+            Changed?.Invoke(this, new CacheEntryChangedEventArgs(CacheEventType.CreatedOrUpdated, key));
         }
 
         private object MoveToFirst(object key)
